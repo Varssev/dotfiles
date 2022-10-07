@@ -1,14 +1,16 @@
-# dotfiles
+# Guide
 
-#1
+# Arch Linux
+
+# 1
 pacman -S reflector
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 reflector -c ES -f 12 -l 10 -n 12 --download-timeout 60 --save /etc/pacman.d/mirrorlist
 
-#2
+# 2
 sudo pacman -S xorg bspwm sxhkd kitty picom rofi feh polybar neovim
 
-#3
+# 3-install
 mkdir -p .config/bspwm/
 mkdir -p .config/sxhkd/
 sudo cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/
@@ -16,7 +18,7 @@ sudo cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/
 chmod +x ~/.config/bspwm/bspwmrc
 chmod +x ~/.config/sxhkd/sxhkdrc
 
-#4.Añadir a bspwm
+# 4-bspwmrc
 setxkmap es &
 feh --bg-fill /home/"usuario"/Images/background/bg1.jpg
 ~/.config/polybar/launch.sh
@@ -24,26 +26,26 @@ picom --experimental-backends &
 
 bspc config focus_follows_pointer true
 
-#Para instalar fonts
+# 5-Fonts
 ir a la pagina de nerd fonts, descargar hack y pasar el zip a /usr/share/fonts
 y descomprimirlo ahi y borrar el License.md y el readme y el comprimido
 
-#configurar polybar
+# 6-Polybar-guide
 https://github.com/polybar/polybar/wiki/
 importante cambiar el nombre de la polybar tanto en el config como en el launch.sh
 https://github.com/adi1090x/polybar-themes
 importante instalar las dependencias
 
-#instalar oh my zsh
+# 7-zsh-custom
 https://github.com/ohmyzsh/ohmyzsh
 
 ______________________________________
 ______________________________________
 ______________________________________
 
-//Pastebin: https://pastebin.com/raw/EEX1Dsuq
+# Debian
 
-//Agregar primero el repositorio de backports
+# Agregar primero el repositorio de backports
 sudo nano /etc/apt/sources.list
 deb http://deb.debian.org/debian buster-backports main
 
@@ -100,7 +102,7 @@ sudo mkdir -p .config/rofi/themes
 sudo touch .config/rofi/config
 rofi-theme-selector (alt + a - Para aplicar los cambios de tema en rofi)
 
-//bspwm
+# bspwm
 //Agregar las siguientes lineas a bspwm
 bspc config focus_follows_pointer true
 feh --bg-fill /home/"usuario"/Imagenes/background/fondo1.jpg
@@ -108,7 +110,7 @@ feh --bg-fill /home/"usuario"/Imagenes/background/fondo1.jpg
 picom --experimental-backends & 
 bspc config border_width 0
 
-//Configuración para URvxt
+# Configuración para URvxt
 sudo nano ~/.Xresources
 //Escribir dentro
 URxvt*background: black 
@@ -123,10 +125,10 @@ xrdb ~/.Xresources //Para recargar el archivo
 //Pagina para ver una simple guia: https://www.enmimaquinafunciona.com/pregunta/133298/como-puedo-cambiar-los-colores-del-rxvt-a-blanco-sobre-negro
 //Para copiar y pegar en terminales: ctrl + alt + c/v
 
-//Agregar usuario a sudo en Debian
+# Agregar usuario a sudo en Debian
 /sbin/usermod -aG sudo usuario
 //Y reiniciar
 
-//KDE Plasma
+# KDE Plasma
 xorg plasma-desktop sddm dolphin konsole
 apt-get remove dolphin
