@@ -8,7 +8,7 @@ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 reflector -c ES -f 12 -l 10 -n 12 --download-timeout 60 --save /etc/pacman.d/mirrorlist
 
 # 2
-sudo pacman -S xorg bspwm sxhkd kitty picom rofi feh polybar ligthdm neovim firefox
+sudo pacman -S xorg bspwm sxhkd kitty picom rofi feh polybar ligthdm lightdm-gtk-greeter neovim firefox
 
 # 3-install
 mkdir -p .config/bspwm/
@@ -29,9 +29,23 @@ bspc config focus_follows_pointer true
 # 4-1-sxhkd
 rofi -show run
 
-# 4-2-rofi
+# 4-2-rofi-Se hace despues de tener configurado el entorno
 mkdir -p ~/.config/rofi
 rofi -dump-config > ~/.config/rofi/config.rasi
+
+# 4-3-picom
+sudo mkdir .config/picom
+sudo cp /usr/share/doc/picom/picom.conf.example ~/.config/picom/
+sudo nano picom.sample.conf (guardarlo eliminado el .sample)
+
+# 4-4-kitty
+sudo cp /usr/share/doc/kitty/kitty.conf ~/.config/kitty/
+
+# 5-ligthdm
+systemctl enable lightdm
+
+# 5-IMPORTANTE-despues de reiniciar-poner en la terminal
+sudo localectl set-x11-keymap es
 
 # 5-Fonts
 ir a la pagina de nerd fonts, descargar hack y pasar el zip a /usr/share/fonts
