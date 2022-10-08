@@ -8,7 +8,7 @@ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 reflector -c ES -f 12 -l 10 -n 12 --download-timeout 60 --save /etc/pacman.d/mirrorlist
 
 # 2
-sudo pacman -S xorg bspwm sxhkd kitty picom rofi feh polybar ligthdm lightdm-gtk-greeter neovim firefox
+sudo pacman -S xorg bspwm sxhkd kitty picom rofi feh polybar ligthdm lightdm-gtk-greeter zsh neovim firefox python-pywal
 
 # 3-install
 mkdir -p .config/bspwm/
