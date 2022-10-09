@@ -10,6 +10,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 # IMPORTANTE 2: Si se instala Arch en un portatil (Wifi)
 # Antes de reiniciar es importante instalar netctl y dialog (para ejecutar wifi-menu)
+# Si no te va a tocar tener que darle amor con el pendrive y hacerle chroot a la particion root e instalarlos
+# Si no enchufarle cable e instalarlos y entonces configurarlos
 pacman -S netctl dialog
 # Hay que desactivar los servicios dhcp y networkmanager porque da error netctl
 systemctl disable dhcpcd
@@ -57,7 +59,7 @@ chmod +x ~/.config/sxhkd/sxhkdrc
 setxkbmap es &
 feh --bg-fill /home/"usuario"/images/background/bg1.jpg
 ~/.config/polybar/launch.sh
-picom --experimental-backends &
+picom
 
 bspc config focus_follows_pointer true
 
